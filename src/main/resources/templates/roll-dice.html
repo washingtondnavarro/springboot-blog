@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: my-header">
+
+    <title>Document</title>
+
+</head>
+<body>
+<div th:replace="fragments/navbar :: my-navbar">
+
+</div>
+<!--Create a random number from 1 to 6-->
+<h1> The Random Number is : <span th:attr="${n}"></span> </h1>
+<div>
+
+</div>
+
+<div>
+    <h1>Guess a number from 1 to 6</h1>
+    <select name="coffee_preference">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+
+        <input th:type="value" th:field="${value}"/>
+
+    </select>
+</div>
+
+<!--this in some way have to aquire the value so it will be process in the back end-->
+<!--<h1> Hello,<span th:text = "${value}">World</span>!</h1>-->
+
+<!--compare-->
+
+<footer th:replace="fragments/footer :: my-footer">
+
+</footer>
+</body>
+</html>
