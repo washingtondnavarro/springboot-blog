@@ -19,9 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
             return "hometwo";
             }
         @GetMapping("/hello/{name}")
-            public String sayHello(@PathVariable String name, Model model){
-                model.addAttribute("name", name);
+            public String sayHello(@PathVariable String name, Model viewmodel){
+                viewmodel.addAttribute("name", name);
                 return "hello";
+
         }
 
 
