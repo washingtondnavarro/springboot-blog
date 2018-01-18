@@ -9,25 +9,39 @@
 <div th:replace="fragments/navbar :: my-navbar">
 
 </div>
-<!--Create a random number from 1 to 6-->
-<h1> The Random Number is : <span th:attr="${n}"></span> </h1>
-<div>
+
+<div th:if="!${guessNumber}">
+    <h1>Guess a number from 1 to 6</h1>
+        <form action="roll-dice">
+                <select name="guessNumber">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+                <input type="submit" value="submit"/>
+        </form>
+
+
+
+                <!--<input th:type="value" th:field="${value}"/>-->
+
 
 </div>
 
+<div th:if="${guessNumber}">
+<!--Create a random number from 1 to 6-->
+    <h1> The Random Number is : <span th:text="${diceNumber}"></span> </h1>
+    <h1> The Guess Number is : <span th:text="${guessNumber}"></span> </h1>
+    <h1><span th:text="${message}"></span> </h1>
 <div>
-    <h1>Guess a number from 1 to 6</h1>
-    <select name="coffee_preference">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
+    <h1>
+        <a href="/roll-dice">New Game?</a>
+    </h1>
+</div>
 
-        <input th:type="value" th:field="${value}"/>
-
-    </select>
 </div>
 
 <!--this in some way have to aquire the value so it will be process in the back end-->

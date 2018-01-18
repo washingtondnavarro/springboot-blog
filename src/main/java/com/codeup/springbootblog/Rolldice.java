@@ -4,31 +4,37 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 
 public class Rolldice {
     //    long option;
+//    @GetMapping("/roll-dice")
+//    public String individualDice() {
+//        return "roll-dice";
+//    }
+
     @GetMapping("/roll-dice")
-    public String individualDice() {
+    public String randomNumber(@RequestParam(value = "guessNumber", defaultValue = "0") int guessNumber, Model vmodel) {
+        System.out.println(guessNumber);
+        Random rand = new Random();
+        int diceNumber = rand.nextInt(6) + 1;
+        vmodel.addAttribute("diceNumber", diceNumber);
+        vmodel.addAttribute("guessNumber",guessNumber);
+            String message;
+        if(diceNumber == guessNumber){
+             message = "Your Guess is correct BRO!";
+        }else {
+             message = "You lose bitch!";
+        }
+        vmodel.addAttribute("message",message);
+
         return "roll-dice";
     }
 
-    @GetMapping("/roll-dice/{n}")
-
-    public int randomNumber() {
-        Random rand = new Random();
-        int n = rand.nextInt(6) + 1;
-        return n;
-    }
-
-
-    @GetMapping("/hello/{value}")
-    public String gettingArgument(@PathVariable String value, Model viewmodel) {
-        viewmodel.addAttribute("value", value);
-        return "hello";
 
     }
-}
+
 
