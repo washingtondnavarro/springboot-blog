@@ -32,24 +32,28 @@ public class Postcontroller {
     @RequestMapping("/posts/{id}")
         public String show (@PathVariable long id, Model viewAndModel){
         Post post = postService.findOne(id);
+
         viewAndModel.addAttribute("post",post);
 
-//    }
-//        public String show(@PathVariable long id, Model viewAndModel){
-//            Post post = new Post("Test post", "Test post");
-//            viewAndModel.addAttribute("post", post);
             return "posts/show";
     }
 //
 //
-//    @GetMapping("/posts/create")
+    @GetMapping("/posts/new")
 //    @ResponseBody
-//    public String postCreateForm(){
-//        return "View the form to create the post";
-//    }
-//
+    public String postCreateForm(){
+        return "posts/newFormPost";
+    }
+
+    @PostMapping("/posts/create")
+    @ResponseBody
+    public String savePost(@RequestParam("title") String title, @RequestParam("description") String description){
+        Post post = new Post(title,description);
+        postService.save(post);
+        return title + " " + description;
+    }
+
 //    @PostMapping("/posts/create")
-//    @ResponseBody
 //    public String postCreateNewPost(){
 //        return "Create a new Post";
 //
