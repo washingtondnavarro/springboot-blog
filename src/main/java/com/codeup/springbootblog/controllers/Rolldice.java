@@ -1,4 +1,4 @@
-package com.codeup.springbootblog;
+package com.codeup.springbootblog.controllers;
 import java.util.Random;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 public class Rolldice {
     //    long option;
-//    @GetMapping("/roll-dice")
+//    @GetMapping("/rolldelete.html")
 //    public String individualDice() {
-//        return "roll-dice";
+//        return "rolldelete.html";
 //    }
 
     @GetMapping("/roll-dice")
@@ -31,7 +31,7 @@ public class Rolldice {
         }
         vmodel.addAttribute("message",message);
 
-        return "roll-dice";
+        return "rolldelete.html";
     }
 
 

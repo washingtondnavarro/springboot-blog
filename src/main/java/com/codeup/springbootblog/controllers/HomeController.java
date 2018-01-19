@@ -1,4 +1,4 @@
-package com.codeup.springbootblog;
+package com.codeup.springbootblog.controllers;
 
 import org.codehaus.groovy.runtime.StringGroovyMethods;
 import org.springframework.stereotype.Controller;
