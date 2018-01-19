@@ -10,13 +10,19 @@
 <div th:replace="fragments/navbar :: my-navbar">
 </div>
 
-<form action="/posts/create" method="post">
+<!--<form action="/posts/create" method="post">-->
+<!--The object will put all the inputs in the object ad to be able to access it later on-->
+    <form action="/posts/create" method="post" th:object="${ad}">
+
+
     Title:
-    <input name="title" />
-    <br />
+        <!--<input name="title" />-->
+        <input th:field="*{title}" />
+        <br />
     Description:
-    <input name="description" />
-    <br />
+        <!--<input name="description" />-->
+        <input th:field="*{description}" />
+        <br />
     <input type="submit" />
 </form>
 
