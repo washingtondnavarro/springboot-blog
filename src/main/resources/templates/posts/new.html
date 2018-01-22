@@ -12,7 +12,7 @@
 
 <!--<form action="/posts/create" method="post">-->
 <!--The object will put all the inputs in the object ad to be able to access it later on-->
-    <form action="/posts/create" method="post" th:object="${ad}">
+    <form action="/posts/create" method="post" th:object="${post}">
 
 
     Title:
@@ -21,7 +21,7 @@
         <br />
     Description:
         <!--<input name="description" />-->
-        <input th:field="*{description}" />
+        <input th:field="*{body}" />
         <br />
     <input type="submit" />
 </form>
