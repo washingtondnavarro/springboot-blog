@@ -24,6 +24,11 @@ public class PostService {
         posts.add(post);
         return post;
     }
+    public Post update(Post post){
+//        post.setId(posts.size()+1);
+        posts.set( (int) post.getId()-1, post);
+        return post;
+    }
 
     public Post findOne(long id) {
         return posts.get((int)(id-1));
