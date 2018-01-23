@@ -1,16 +1,11 @@
 package com.codeup.springbootblog.controllers;
 import com.codeup.springbootblog.daos.PostRepository;
 import com.codeup.springbootblog.models.Post;
-import com.codeup.springbootblog.services.PostService;
-import javafx.geometry.Pos;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 @Controller
 public class Postcontroller {
