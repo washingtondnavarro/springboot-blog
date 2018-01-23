@@ -26,7 +26,7 @@ public class PostService {
     }
     public Post update(Post post){
 //        post.setId(posts.size()+1);
-        posts.set( (int) post.getId()-1, post);
+//        posts.set(post.getId()-1);
         return post;
     }
 

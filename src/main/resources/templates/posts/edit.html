@@ -28,6 +28,20 @@
     <br />
     <input type="submit" />
 </form>
+<form action="/posts/delete" method="post" th:object="${whatispresentedinthetemplet}">
+    <input type="hidden" th:field="*{id}"/>
+    <!--Title:-->
+    <!--&lt;!&ndash;<input name="title" />&ndash;&gt;-->
+    <!--<input th:field="*{title}" />-->
+    <!--<br />-->
+    <!--Description:-->
+    <!--&lt;!&ndash;<input name="description" />&ndash;&gt;-->
+    <!--<input th:field="*{body}" />-->
+    <!--<br />-->
+    <input type="submit" value="Delete" />
+</form>
+
+
 
 <footer th:replace="fragments/footer :: my-footer">
 </footer>
