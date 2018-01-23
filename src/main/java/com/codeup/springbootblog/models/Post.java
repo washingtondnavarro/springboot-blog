@@ -1,8 +1,28 @@
 package com.codeup.springbootblog.models;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+
+
+@Entity
+// we have to create a primary key
+
+
+@Table(name = "posts")
+
 public class Post {
+//    automatic increment
+    @javax.persistence.Id @GeneratedValue
     private long id;
+
+    @Column(nullable = false)
     private  String title;
+
+    @Column(nullable = true)
     private String body;
 
     public Post(String title, String body) {
