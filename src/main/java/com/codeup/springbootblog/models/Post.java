@@ -1,13 +1,9 @@
 package com.codeup.springbootblog.models;
 
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-
+// properties
 @Entity
 // we have to create a primary key
 
@@ -16,13 +12,14 @@ import javax.persistence.Table;
 
 public class Post {
 //    automatic increment
-    @javax.persistence.Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
 
     @Column(nullable = false)
     private  String title;
 
-    @Column(nullable = true)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
     public Post(String title, String body) {

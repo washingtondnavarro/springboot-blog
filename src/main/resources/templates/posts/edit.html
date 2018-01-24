@@ -12,24 +12,30 @@
 
 <!--<form action="/posts/create" method="post">-->
 <!--The object will put all the inputs in the object ad to be able to access it later on-->
-<form action="/posts/update" method="post" th:object="${whatispresentedinthetemplet}">
+<!--<form action="/posts/update" method="post" th:object="${whatispresentedinthetemplet}">-->
 
+    <form th:action="@{/posts/{id}/edit(id=${post.id})}" method="post" th:object="${post}">
+
+<!--
     ID:
     <input type="hidden" th:field="*{id}"/>
 
 
-    Title:
+-->
+        Title:
     <!--<input name="title" />-->
-    <input th:field="*{title}" />
-    <br />
-    Description:
+            <input th:field="*{title}" />
+            <br />
+        Description:
     <!--<input name="description" />-->
-    <input th:field="*{body}" />
-    <br />
-    <input type="submit" />
-</form>
-<form action="/posts/delete" method="post" th:object="${whatispresentedinthetemplet}">
-    <input type="hidden" th:field="*{id}"/>
+            <input th:field="*{body}" />
+            <br />
+        <input type="submit" value="Edit" />
+    </form>
+    <!--<form action="/posts/delete" method="post" th:object="${whatispresentedinthetemplet}">-->
+    <form method="post" th:action="@{/post/{id}/delete(id=${post.id})">
+
+        <!--<input type="hidden" th:field="*{id}"/>-->
     <!--Title:-->
     <!--&lt;!&ndash;<input name="title" />&ndash;&gt;-->
     <!--<input th:field="*{title}" />-->
@@ -38,8 +44,8 @@
     <!--&lt;!&ndash;<input name="description" />&ndash;&gt;-->
     <!--<input th:field="*{body}" />-->
     <!--<br />-->
-    <input type="submit" value="Delete" />
-</form>
+        <input type="submit" value="Delete" />
+    </form>
 
 
 
