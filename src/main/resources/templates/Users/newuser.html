@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: my-header('New Post')">
+
+</head>
+
+<body>
+
+<div th:replace="fragments/navbar :: my-navbar">
+</div>
+
+<!--<form action="/posts/create" method="post">-->
+<!--The object will put all the inputs in the object ad to be able to access it later on-->
+    <form action="/user/create" method="post" th:object="${user}">
+
+
+    Name:
+        <!--<input name="title" />-->
+        <input th:field="*{name}" />
+        <br />
+    Last Name:
+        <!--<input name="description" />-->
+        <input th:field="*{lastName}" />
+        <br />
+    <input type="submit" />
+</form>
+
+<footer th:replace="fragments/footer :: my-footer">
+</footer>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 package com.codeup.springbootblog.models;
+//git push production master
 
 
 import javax.persistence.*;
@@ -22,10 +23,17 @@ public class Post {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
-    public Post(String title, String body) {
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private User user;
+    @ManyToOne
+    private User user;
+
+    public Post(String title, String body, User user) {
         this.title = title;
         this.body = body;
+        this.user = user;
     }
+
 
     public Post() {
 
