@@ -63,13 +63,13 @@ public class Postcontroller {
             postService.save(post);
 //          return title + " " + description;
 //          return post.getTitle() + " " + post.getBody();
-            return "redirect:/post";
+            return "redirect:/posts";
         }
 
         @GetMapping("/posts/{id}/edit")
             public String postEdit(@PathVariable long id, Model viewAndModel){
             Post editPost = postService.findOne(id);
-            viewAndModel.addAttribute("whatispresentedinthetemplet",editPost);
+            viewAndModel.addAttribute("post",editPost);
             return "posts/edit";
 
         }
@@ -85,7 +85,7 @@ public class Postcontroller {
 //          }
         @PostMapping("/posts/{id}/edit")
             public String updatePost(@PathVariable long id, @ModelAttribute Post post){
-//                post.setId(id);
+                post.setId(id);
                 postService.save(post);
                 return "redirect:/posts";
         }

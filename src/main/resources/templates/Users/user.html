@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/header :: my-header('All posts')">
+<head th:replace="fragments/header :: my-header(${user.name})">
 
 </head>
 
@@ -10,15 +10,10 @@
     <div th:replace="fragments/navbar :: my-navbar">
         </div>
 
-    <div th:replace="fragments/userInfo :: my-userInfo">
-<!--the user info-->
-        </div>
-    <div>
-<!--the user info-->
-<!--The user posts-->
-    <div th:replace="fragments/showPostbyId :: my-showPosyById">
-        </div>
-<!--The user posts-->
+    <!--User Information-->
+    <h1 th:text="${user.name}"></h1>
+    <h1 th:text="${user.lastName}"></h1>
+    <!--End of User Information-->
 
 <footer th:replace="fragments/footer :: my-footer">
 </footer>

@@ -52,7 +52,6 @@ public class User {
 ////         this will be text
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    @Column(nullable = true)
     protected List<Post> posts;
 
     public User(long id, String name, String lastName/*, String userName, String eMail, String passWord, String speciality, String interest, String bio, String industry, String speciality1, List<Post> posts*/) {

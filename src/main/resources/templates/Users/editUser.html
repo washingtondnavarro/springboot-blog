@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: my-header('Edit User Info')">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/navbar :: my-navbar">
+
+</div>
+
+    <form th:action="@{/users/{id}/edit(id=${user.id})}" method="post" th:object="${user}">
+
+
+        Name:
+        <input th:field="*{name}"/>
+        <br/>
+        Last Name:
+        <input th:field="*{lastName}"/>
+        <br/>
+        <input type="submit" value="Edit">
+    </form>
+
+    <form method="post" th:action="@{users/{id}/delete(id=${user.id})}">
+        <input type="submit" value="Delete"/>
+    </form>
+<footer th:replace="fragments/footer :: my-footer"></footer>
+</body>
+</html>

@@ -14,14 +14,20 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+    @RequestMapping("/users")
+        public String users(Model viewAndModel){
+        Iterable<User> users = userService.findAll();
+        viewAndModel.addAttribute("users", users);
+        return "users/index";
+    }
 
 //     the path @PathVariable will help us to get the information and pass it to the templet(HTML)
 
     @GetMapping("/users/{id}")
-        public String showPostByUserId(@PathVariable long id, Model viewAndModel ){
+        public String showUserInfo(@PathVariable long id, Model viewAndModel ){
         User user =userService.findOne(id);
         viewAndModel.addAttribute("user",user);
-        return "users/showUser";
+        return "users/user";
     }
 // this is to call the form to create the user and present it in the templet
     @GetMapping("/users/create")
