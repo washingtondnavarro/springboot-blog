@@ -18,10 +18,10 @@
         Last Name:
         <input th:field="*{lastName}"/>
         <br/>
-        <input type="submit" value="Edit">
+        <input type="submit" value="Edit"/>
     </form>
 
-    <form method="post" th:action="@{users/{id}/delete(id=${user.id})}">
+    <form method="post" th:action="@{/users/{id}/delete(id=${user.id})}">
         <input type="submit" value="Delete"/>
     </form>
 <footer th:replace="fragments/footer :: my-footer"></footer>

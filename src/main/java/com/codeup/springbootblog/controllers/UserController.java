@@ -42,7 +42,26 @@ public class UserController {
     public  String saveNewUser(@ModelAttribute User user){
             userService.save(user);
             return "redirect:/users";
+    }
 
+    @GetMapping("/users/{id}/edit")
+        public String userEditInfo(@PathVariable long id, Model viewAndModel){
+        User editUserInfo =userService.findOne(id);
+        viewAndModel.addAttribute("user",editUserInfo);
+        return "users/editUser";
+    }
+
+    @PostMapping("/users/{id}/edit")
+        public String updatedUserInfo(@PathVariable long id, @ModelAttribute User user){
+            user.setId(id);
+            userService.save(user);
+            return "redirect:/users";
+    }
+
+    @PostMapping("/users/{id}/delete")
+        public String deleteUser(@PathVariable long id){
+        userService.delete(id);
+        return "redirect:/users";
     }
 
 //    sending to edit post for a specific post fro specific user

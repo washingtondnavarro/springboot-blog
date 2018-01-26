@@ -15,6 +15,13 @@
     <h1 th:text="${user.lastName}"></h1>
     <!--End of User Information-->
 
+    <div th:each="post : ${user.posts}">
+        <h1 th:text="${post.title}"></h1>-->>
+        <!--<h1> Welcome,<span th:text = "${name}"></span>!</h1>-->
+        <p th:text="${post.body}"></p>
+
+    </div>
+
 <footer th:replace="fragments/footer :: my-footer">
 </footer>
 
