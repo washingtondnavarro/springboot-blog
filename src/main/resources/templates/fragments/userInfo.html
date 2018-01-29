@@ -5,7 +5,38 @@
 </head>
 <body>
 <div th:fragment="my-userInfo">
-    <h1>The User info goes here</h1>
+    <div class="container">
+        <h1>The User info goes here</h1>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3">
+                    <h1>Text goes here</h1>
+                    <!--User Information-->
+                    <h1 th:text="${user.name}"></h1>
+                    <h1 th:text="${user.lastName}"></h1>
+                    <!--End of User Information-->
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3">
+                    <h1>Text goes here</h1>
+                    <div th:each="post : ${user.posts}">
+                        <h1 th:text="${post.title}"></h1>-->>
+                        <!--<h1> Welcome,<span th:text = "${name}"></span>!</h1>-->
+                        <p th:text="${post.body}"></p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3">
+                    <h1>Text goes here</h1>
+
+                </div>
+
+
+            </div>
+
+    </div>
 
 </div>
 

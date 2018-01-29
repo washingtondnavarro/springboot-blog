@@ -27,7 +27,7 @@ public class UserController {
         public String showUserInfo(@PathVariable long id, Model viewAndModel ){
         User user =userService.findOne(id);
         viewAndModel.addAttribute("user",user);
-        return "users/user";
+        return "users/profile";
     }
 // this is to call the form to create the user and present it in the templet
     @GetMapping("/users/create")

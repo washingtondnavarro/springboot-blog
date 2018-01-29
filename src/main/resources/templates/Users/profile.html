@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: my-header(${user.name})">
+
+</head>
+
+<body>
+
+    <div th:replace="fragments/navbar :: my-navbar">
+        </div>
+            <div class="container">
+                <!--<h1>The User info goes here</h1>-->
+                <div class="row">
+    <!--User Information-->
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        <h1 th:text="${user.name}"></h1>
+                        <h1 th:text="${user.lastName}"></h1>
+                    </div>
+    <!--End of User Information-->
+                    </div>
+
+                <div class="row">
+                        <div th:each="post : ${user.posts}">
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                            <h1 th:text="${post.title}"></h1>
+        <!--<h1> Welcome,<span th:text = "${name}"></span>!</h1>-->
+                            <p th:text="${post.body}"></p>
+
+                    </div>
+                        </div>
+                </div>
+            </div>
+
+<footer th:replace="fragments/footer :: my-footer">
+</footer>
+
+</body>
+</html>
